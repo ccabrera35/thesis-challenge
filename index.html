@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet/less" type="text/css" href="assets/styles.less" />
+  <!-- <link rel="stylesheet" type="text/css" href="assets/styles.css" /> -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+</head>
+
+<body>
+  <nav class="header">
+    <img class="header__logo" src="assets/logo.png"/>
+    <a class="header__link" href="#"> About</a>
+    <a class="header__link" href="#">Integrations</a>
+    <a class="header__link" href="#">Pricing</a>
+    <a class="header__link" href="#">Contacts</a>
+    <div class="header__menu">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+  <nav class="header--mobile">
+    <div id="menu-btn" class="header__menu header__menu--mobile">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <img class="header__logo--mobile" src="assets/logo.png"/>
+  </nav>
+  <div class="menu">
+    <div class="menu__container">
+      <a class="menu__container__link" href="#">About</a>
+      <a class="menu__container__link" href="#">Integrations</a>
+      <a class="menu__container__link" href="#">Pricing</a>
+      <a class="menu__container__link" href="#">Contacts</a>
+    </div>
+  </div>
+  <div class="content">
+    <div class="blurb">
+      <div class="blurb__headline">Simple Way to Organize Your Inspirations</div>
+      <div class="blurb__info">I think what motivates people is not great hate, but great love for other people.</div>
+    </div>
+    <div class="form-container">
+      <div class="form-container__header">SIGN UP FOR FREE</div>
+      <form class="form-container__form">
+        <input class="form-container__form__input" type="text" placeholder="Name" />
+        <input class="form-container__form__input" type="text" placeholder="E-mail" />
+        <input class="form-container__form__input" type="password" placeholder="Password" />
+        <button class="form-container__form__submit">Sign Up</button>
+      </form>
+      <footer class="form-container__footer">By clicking "Sign up" I agree to our 
+        <a href="#">Terms of Service.</a>
+      </footer>
+    </div>
+  </div>
+  <footer class="footer">
+    <span class="footer__copyright">© 2016 Stamp. All Rights Reserved</span>
+    <div class="footer__info">
+      <a class="footer__info__link" href="#">Contact</a>
+      <a class="footer__info__link" href="#">Help</a>
+      <a class="footer__info__link" href="#">Terms of Use</a>
+      <a class="footer__info__link" href="#">Privacy Policy</a>
+    </div>
+  </footer>
+  <script>
+    var menuBtn = document.querySelector("#menu-btn");
+    var menu = document.querySelector(".menu");
+    var toggleMenu = function() {
+      menu.classList.toggle("open")
+      document.body.classList.toggle("no-scroll")
+    }
+    menuBtn.addEventListener("click", toggleMenu);
+  </script>
+</body>
+</html>

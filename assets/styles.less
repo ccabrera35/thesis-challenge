@@ -1,0 +1,360 @@
+@white: #FFFFFF;
+@light-gray: #CCCCCC;
+@medium-gray: #D1CFCF;
+@light-blue: #349EF5;
+@default-bg-color: #464646;
+@form-border-gray: rgba(163, 162, 162, 0.5);
+@form-background-gray: rgba(207, 204, 204, 0.1);
+@overlay-black: rgba(0, 0, 0, 0.9);
+
+body {
+  background-image: url("./background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: @default-bg-color;
+  background-attachment: fixed;
+  color: @white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+.menu {
+  background-color: @overlay-black;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+  overflow: hidden;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    &__link {
+      text-decoration: none;
+      color: inherit;
+      margin-top: 20px;
+    }
+  }
+
+  &.open {
+    visibility: visible;
+    animation: fadeIn 0.3s alternate;
+    animation-fill-mode: forwards;
+  }
+}
+
+.header {
+  display: none;
+
+  &--mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  &__logo {
+    width: 48px;
+    margin-right: auto;
+    justify-self: flex-start;
+
+    &--mobile {
+      width: 36px;
+      margin-right: 10px;
+    }
+  }
+
+  &__link {
+    margin: 0 20px;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      color: @light-gray;
+    }
+  }
+  
+  &__menu {
+    margin-left: auto;
+    justify-self: flex-end;
+    cursor: pointer;
+
+    div {
+      width: 25px;
+      height: 3px;
+      background-color: @white;
+      margin: 5px 0;
+      border-radius: 3px;
+    }
+
+    &--mobile {
+      position: relative;
+      margin-left: 10px;
+      width: 25px;
+      z-index: 2;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  width: auto;
+  max-width: 400px;
+  flex-direction: column;
+  
+  .blurb {
+    margin: 20px auto 0px auto;
+    width: 90%;
+    text-align: center;
+
+    &__headline {
+      font-size: 36px;
+    }
+  
+    &__info {
+      margin-top: 15px;
+      font-size: 16px;
+      color: @medium-gray;
+    }
+  }
+
+  .form-container {
+    margin: 40px 10px;
+    width: auto;
+
+    &__header {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    &__form {
+      width: auto;
+      min-width: 250px;
+      max-width: 600px;
+
+      &__input {
+        display: block;
+        width: ~"calc(100% - 10px)";
+        margin: 0;
+        border: 0;
+        color: @white;
+        font-size: 14px;
+        padding: 0px 0px 0px 10px;
+        white-space: normal;
+        background-color: @form-background-gray;
+        line-height: 1;
+        height: 50px;
+        border-left: 2px solid @form-border-gray;
+        border-right: 2px solid  @form-border-gray;
+        border-top: 1px solid  @form-border-gray;
+
+        &::placeholder {
+          color: @white;
+        }
+
+        &:first-child {
+          border-top: 2px solid @form-border-gray;
+          border-radius: 4px 4px 0px 0px;
+        }
+      }
+
+      &__submit {
+        border: none;
+        border-radius: 0px 0px 4px 4px;
+        margin: 0;
+        padding: 0;
+        width: ~"calc(100% + 4px)";
+        height: 50px;
+        overflow: visible;
+        text-align: center;
+        cursor: pointer;
+        background: @light-blue;
+        color: @white;
+        font: inherit;
+        line-height: normal;
+      }
+    }
+
+    &__footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: @light-gray;
+
+      a {
+        width: max-content;
+        display: block;
+        text-decoration: none;
+        color: @white;
+        margin: 8px auto 0px auto;
+        cursor: pointer;
+        
+        &:hover {
+          color: @light-gray;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  margin: 150px 10px 0px 10px;
+  text-align: center;
+
+  &__info {
+    margin-bottom: 30px;
+
+    &__link {
+      margin: 0 10px;
+      text-decoration: none;
+      color: inherit;
+
+      &:hover {
+        color: @light-gray;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .content {
+    flex-direction: row;
+    max-width: 600px;
+
+    .blurb {
+      margin-top: 60px;
+      margin-right: 60px;
+      text-align: left;
+    }
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .menu {
+    display: none;
+  }
+
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 50px;
+    font-size: 20px;
+
+    &__logo {
+      &--mobile {
+        display: none;
+      }
+    }
+
+    &__menu {
+      &--mobile {
+        display: none;
+      }
+    }
+  }
+  
+  .content {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 140px 80px;
+    max-width: 100%;
+
+    .blurb {
+      margin-top: 10px;
+      margin-right: 100px;
+      width: 90%;
+      
+      &__headline {
+        word-break: break-word;
+        font-size: 48px;
+        font-weight: 600;
+      }
+      
+      &__info {
+        margin-top: 20px;
+        font-size: 16px;
+        line-height: 1.5;
+        max-width: 80%;
+      }
+    }
+
+    .form-container {
+      margin: 0px 30px;
+
+      &__header {
+        margin-top: 0px;
+      }
+
+      &__form {
+        width: 400px;
+
+        &__submit {
+          width: ~"calc(100% + 4px)";
+        }
+      }
+    }
+
+    .footer {
+      margin: 0px 10px;
+    }
+  }
+
+  .footer {
+    margin: 0px 50px;
+    flex-direction: row;
+    text-align: left;
+
+    &__info {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .content {
+    margin-left: 120px;
+    margin-right: 120px;
+
+    .blurb {
+      &__headline {
+        font-size: 64px;
+      }
+      
+      &__info{
+        margin-top: 20px;
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+  }
+  to {
+    opacity: 1; 
+  }
+}
